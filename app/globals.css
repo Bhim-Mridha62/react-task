@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --pink: #E91E8C;
+  --pink-light: #FF6BB5;
+  --pink-gradient: linear-gradient(135deg, #E91E8C, #FF6BB5);
+  --dark: #1a1a2e;
+  --text-gray: #6b7280;
+  --text-light: #9ca3af;
+  --bg-white: #ffffff;
+  --bg-light: #f9fafb;
+  --green-start: #10b981;
+  --green-end: #06b6d4;
+  --purple: #7c3aed;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-background: var(--bg-white);
+  --color-foreground: var(--dark);
+  --color-pink: var(--pink);
+  --color-pink-light: var(--pink-light);
+  --font-sans: var(--font-heebo);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-white);
+  color: var(--dark);
+  font-family: "Heebo", Arial, Helvetica, sans-serif;
+  direction: rtl;
+  overflow-x: hidden;
+}
+
+/* Floating icon animations */
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(5px, -10px) rotate(3deg); }
+  50% { transform: translate(-3px, -18px) rotate(-2deg); }
+  75% { transform: translate(8px, -8px) rotate(4deg); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-8px, -12px) rotate(-3deg); }
+  50% { transform: translate(5px, -20px) rotate(2deg); }
+  75% { transform: translate(-6px, -6px) rotate(-4deg); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(10px, -15px); }
+  66% { transform: translate(-5px, -10px); }
+}
+
+@keyframes float4 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-10px, -12px) rotate(5deg); }
+}
+
+.animate-float1 { animation: float1 6s ease-in-out infinite; }
+.animate-float2 { animation: float2 7s ease-in-out infinite; }
+.animate-float3 { animation: float3 5s ease-in-out infinite; }
+.animate-float4 { animation: float4 8s ease-in-out infinite; }
+
+/* Gradient text for "לבחור בנו" */
+.gradient-text-green {
+  background: linear-gradient(90deg, #10b981, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-pink {
+  background: linear-gradient(90deg, #E91E8C, #FF6BB5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Tool card hexagonal/angled bottom */
+.tool-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.tool-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Circle decorative element */
+.hero-circle {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb;
+  position: relative;
+}
+
+/* Scrollbar hide for partners bar */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
