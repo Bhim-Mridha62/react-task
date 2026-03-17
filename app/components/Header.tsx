@@ -5,20 +5,34 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="w-full bg-white sticky top-0 z-50 shadow-sm">
+    <header className="">
       <div className="max-w-[1200px] mx-auto px-5 h-[70px] flex items-center justify-between">
 
         {/* Logo - Right side in RTL */}
-        <div className="flex items-center gap-2">
-          <div className="flex flex-col items-end leading-tight">
-            <span className="text-[20px] font-bold text-[var(--dark)]">בירוקליק</span>
-            <span className="text-[10px] text-[var(--text-gray)]">בירוקרטיה בקליק</span>
-          </div>
-          <div className="w-[32px] h-[32px] rounded-lg flex items-center justify-center" style={{ background: "var(--pink)" }}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7" />
+        <div className="flex flex-col items-end gap-1 text-right" dir="ltr">
+          <div className="flex items-center gap-1">
+
+            {/* Icon */}
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="#1a1040"
+              xmlns="http://www.w3.org/2000/svg"
+              className="ml-1 flex-shrink-0"
+            >
+              <path d="M4 2L20 9.5L13 12.5L10 20L4 2Z" />
             </svg>
+            {/* Logo */}
+            <span className="text-[34px] font-extrabold leading-none tracking-[-0.5px]">
+              <span className="text-[#e91e8c]">בירוקליק</span>
+            </span>
           </div>
+
+          {/* Tagline */}
+          <span className="text-[13px] text-gray-400 mt-[2px]">
+            בירוקרטיה בקליק
+          </span>
         </div>
 
         {/* Nav - Center */}
@@ -37,7 +51,7 @@ export default function Header() {
         {/* CTA Button */}
         <a
           href="#start"
-          className="hidden md:inline-flex items-center justify-center h-[42px] px-6 rounded-full text-white text-[14px] font-semibold transition-all duration-300 hover:opacity-90 hover:shadow-lg"
+          className="hidden md:inline-flex items-center justify-center h-[42px] px-6 rounded-[8px] text-white text-[14px] font-semibold transition-all duration-300 hover:opacity-90 hover:shadow-lg"
           style={{ background: "var(--pink)" }}
         >
           התחילו עכשיו

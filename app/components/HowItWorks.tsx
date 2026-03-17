@@ -1,134 +1,204 @@
-"use client";
-import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
+
+// ── Replace with your actual SVG imports ──────────────────────────────────────
+// import FillIcon     from "@/assets/icons/fill.svg";
+// import DocumentIcon from "@/assets/icons/document.svg";
+// import SubmitIcon   from "@/assets/icons/submit.svg";
+// import HeroImage    from "@/assets/images/hero.png";
+// ─────────────────────────────────────────────────────────────────────────────
+
+const steps = [
+  {
+    stepLabel: "שלב 1",
+    title: "מילוי פרטים",
+    description:
+      "הזינו את פרטי התביעה ותתארו את המקרה בליווי בוט AI חכם שמנחה אתכם בכל שלב",
+    // Replace the JSX below with: <FillIcon className="w-8 h-8 text-pink-600" />
+    icon: (
+      <svg
+        width="34"
+        height="34"
+        viewBox="0 0 34 34"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          x="5"
+          y="3"
+          width="18"
+          height="24"
+          rx="2.5"
+          stroke="#E91E8C"
+          strokeWidth="1.8"
+        />
+        <path
+          d="M9 10h10M9 14h10M9 18h6"
+          stroke="#E91E8C"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+        />
+        <path
+          d="M20 24l2.5 2.5L27 22"
+          stroke="#E91E8C"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    stepLabel: "שלב 2",
+    title: "צירוף מסמכים",
+    description: "העלו מסמכים ותמונות בקלות ובמהירות",
+    // Replace with: <DocumentIcon className="w-8 h-8 text-pink-600" />
+    icon: (
+      <svg
+        width="34"
+        height="34"
+        viewBox="0 0 34 34"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          x="7"
+          y="3"
+          width="16"
+          height="22"
+          rx="2.5"
+          stroke="#E91E8C"
+          strokeWidth="1.8"
+        />
+        <path
+          d="M15 9v8M11 13h8"
+          stroke="#E91E8C"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    stepLabel: "שלב 3",
+    title: "הגשה וסיום",
+    description: "סקירה סופית ותשלום מאובטח והגשה מקוונת של התביעה",
+    // Replace with: <SubmitIcon className="w-8 h-8 text-pink-600" />
+    icon: (
+      <svg
+        width="34"
+        height="34"
+        viewBox="0 0 34 34"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          x="5"
+          y="3"
+          width="18"
+          height="24"
+          rx="2.5"
+          stroke="#E91E8C"
+          strokeWidth="1.8"
+        />
+        <path
+          d="M9 10h10M9 14h10M9 18h10"
+          stroke="#E91E8C"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+        />
+        <circle cx="25" cy="26" r="6" fill="#E91E8C" />
+        <path
+          d="M22.5 26l2 2 3-3"
+          stroke="white"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+];
 
 export default function HowItWorks() {
-  const steps = [
-    {
-      num: "1",
-      title: "מילוי פרטים",
-      desc: "הזינו את פרטי התביעה ותארו את המקרה בליווי בוט AI חכם שמנחה אתכם בכל שלב",
-      icon: (
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
-        </svg>
-      ),
-      active: true,
-    },
-    {
-      num: "2",
-      title: "צירוף מסמכים",
-      desc: "העלו את המסמכים הרלוונטיים בקלות, המערכת שלנו תסרוק ותחלץ את המידע החשוב",
-      icon: (
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-          <path d="M14 2v6h6" />
-          <line x1="12" y1="18" x2="12" y2="12" />
-          <line x1="9" y1="15" x2="15" y2="15" />
-        </svg>
-      ),
-      active: false,
-    },
-    {
-      num: "3",
-      title: "הגשה וסיום",
-      desc: "סקירה סופית ותשלום מאובטח והגשה מקוונת של התביעה",
-      icon: (
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-          <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
-        </svg>
-      ),
-      active: false,
-    },
-  ];
-
   return (
-    <section className="w-full bg-white py-20">
-      <div className="max-w-[1200px] mx-auto px-5 flex flex-col items-center">
-        {/* Title */}
-        <h2 className="text-[38px] md:text-[46px] font-medium text-[var(--dark)] mb-16 text-center">
-          איך זה עובד?{" "}
-          <span className="text-[var(--pink)] font-bold">פשוט.</span>
-        </h2>
+    <section
+      dir="rtl"
+      className="w-full bg-white py-16 px-6 md:px-16 lg:px-24"
+    >
+      <div className="max-w-5xl mx-auto flex flex-row-reverse md:flex-row items-center gap-12 md:gap-20">
+        <div className="flex-1 flex flex-col gap-8 text-right">
 
-        <div className="w-full flex flex-col-reverse md:flex-row gap-16 items-center justify-between">
-          {/* Steps list */}
-          <div className="flex-1 flex flex-col gap-10">
-            {steps.map((step, i) => (
-              <div key={i} className="flex items-start gap-5 group">
-                {/* Icon box */}
-                <div
-                  className="w-[58px] h-[58px] rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:shadow-md"
-                  style={{
-                    border: step.active ? "2px solid var(--pink)" : "1px solid #e5e7eb",
-                    background: step.active ? "rgba(233,30,140,0.04)" : "white",
-                    boxShadow: step.active ? "0 4px 16px rgba(233,30,140,0.12)" : "0 2px 8px rgba(0,0,0,0.04)"
-                  }}
-                >
-                  {step.icon}
-                </div>
+          {/* Headline */}
+          <h2 className="text-4xl md:text-5xl font-light text-gray-800 leading-tight">
+            איך זה עובד?{" "}
+            <span
+              className="font-extrabold"
+              style={{
+                background:
+                  "linear-gradient(90deg, #E91E8C 0%, #9C27B0 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              פשוט.
+            </span>
+          </h2>
 
+          {/* Step list */}
+          <div className="flex flex-col gap-8">
+            {steps.map((step) => (
+              <div key={step.stepLabel} className="flex items-start gap-4">
                 {/* Text */}
-                <div className="flex flex-col pt-1">
-                  <span className="text-[13px] font-medium text-[var(--pink-light)] mb-1">שלב {step.num}</span>
-                  <h3 className="text-[19px] font-bold text-[var(--dark)] mb-1.5">{step.title}</h3>
-                  <p className="text-[15px] text-[var(--text-gray)] leading-relaxed max-w-[360px]">{step.desc}</p>
-                  {i === 2 && (
-                    <a
-                      href="#start"
-                      className="mt-6 self-start inline-flex items-center justify-center h-[42px] px-8 rounded-full text-white text-[14px] font-semibold hover:opacity-90 transition-all"
-                      style={{ background: "var(--pink)" }}
-                    >
-                      התחילו עכשיו
-                    </a>
-                  )}
+                <div className="flex-shrink-0 mt-0.5">{step.icon}</div>
+                <div className="flex-1">
+                  <p
+                    className="text-xs font-semibold tracking-wide mb-0.5"
+                    style={{ color: "#E91E8C" }}
+                  >
+                    {step.stepLabel}
+                  </p>
+                  <h3 className="text-base font-bold text-gray-900 mb-1">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Woman image or decorative area */}
-          <div className="flex-1 flex justify-center relative">
-            {/* Outer rings */}
-            <div className="w-[300px] h-[300px] md:w-[440px] md:h-[440px] rounded-full border border-gray-100 relative flex items-center justify-center">
-              <div className="absolute inset-[-30px] rounded-full border border-gray-50" />
-              <div className="absolute inset-[-60px] rounded-full border border-gray-50 opacity-60" />
+          {/* CTA */}
+          <div>
+            <button
+              className="px-8 py-3 rounded-[8px] text-white font-semibold text-base shadow-md
+                         transition-transform duration-150 hover:scale-105 active:scale-95"
+              style={{
+                background:
+                  "linear-gradient(90deg, #E91E8C 0%, #C2185B 100%)",
+              }}
+            >
+              התחילו עכשיו
+            </button>
+          </div>
+        </div>
+        {/* ── Left column: circular image ─────────────────────────────────── */}
+        <div className="flex-shrink-0 flex items-center justify-center">
+          <div className="relative w-72 h-72 md:w-[380px] md:h-[380px]">
+            {/* Decorative concentric rings */}
+            <div className="absolute inset-0 rounded-full border border-gray-200" />
+            <div className="absolute inset-5 rounded-full border border-gray-100" />
 
-              {/* Profile circular image placeholder */}
-              <div className="w-[260px] h-[260px] md:w-[380px] md:h-[380px] rounded-full overflow-hidden bg-gray-100 border-4 border-white shadow-xl flex items-center justify-center">
-                {/* Decorative pink/woman shape fallback */}
-                <div className="w-full h-full bg-gradient-to-br from-pink-50 to-purple-50 flex items-center justify-center">
-                  <svg width="160" height="200" viewBox="0 0 200 240" fill="none">
-                    {/* Simple woman silhouette */}
-                    <ellipse cx="100" cy="70" rx="45" ry="50" fill="#f3d1e3" />
-                    <ellipse cx="100" cy="70" rx="30" ry="35" fill="#fcd9e8" />
-                    <path d="M55 120 Q100 100 145 120 L155 200 L45 200 Z" fill="#E91E8C" opacity="0.7" />
-                    <ellipse cx="78" cy="68" rx="5" ry="6" fill="#c86a9a" />
-                    <ellipse cx="122" cy="68" rx="5" ry="6" fill="#c86a9a" />
-                    <path d="M88 90 Q100 98 112 90" stroke="#c86a9a" strokeWidth="2" fill="none" strokeLinecap="round" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Stat badge - 1 */}
-              <div className="absolute top-4 right-0 bg-white rounded-xl shadow-lg px-4 py-3 flex items-center gap-2 border border-gray-100">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "rgba(233,30,140,0.1)" }}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" strokeWidth="2">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-[12px] font-bold text-[var(--dark)]">בדיקה חינם</div>
-                  <div className="text-[10px] text-[var(--text-gray)]">ללא התחייבות</div>
-                </div>
-              </div>
-
-              {/* Stat badge - 2 */}
-              <div className="absolute bottom-10 left-0 bg-white rounded-xl shadow-lg px-4 py-3 border border-gray-100">
-                <div className="text-[18px] font-extrabold text-[var(--dark)]">1.2M+</div>
-                <div className="text-[11px] text-[var(--text-gray)]">שקל הוחזר</div>
-              </div>
+            {/* Photo circle */}
+            <div className="absolute inset-10 rounded-full overflow-hidden bg-gray-100 shadow-lg">
+              <Image
+                src="/laptup-user.jpg"
+                alt="אישה עם מחשב נייד"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
         </div>

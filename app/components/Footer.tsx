@@ -1,90 +1,162 @@
 export default function Footer() {
   return (
-    <footer className="w-full bg-white border-t border-gray-100">
-      {/* CTA Banner */}
-      <div
-        className="w-full py-16 text-center relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #f9f0ff, #fff0f8, #f0f8ff)" }}
+    <>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+      />
+      <section
+        dir="rtl"
+        className="w-full py-16 px-4 bg-white font-['Heebo','Assistant',sans-serif]"
       >
-        <div className="max-w-[700px] mx-auto px-5 flex flex-col items-center gap-5">
-          <h2 className="text-[30px] md:text-[38px] font-extrabold text-[var(--dark)] leading-tight">
-            בואו לדרוך אחבם, מאאחם,{" "}
-            <span className="gradient-text-pink">פחות חזקה</span>
-          </h2>
-          <p className="text-[16px] text-[var(--text-gray)] max-w-[420px]">
-            הצטרפו לאלפי ישראלים שכבר חוסכים זמן וכסף עם בירוקליק
-          </p>
-          <a
-            href="#start"
-            className="inline-flex items-center justify-center h-[50px] px-10 rounded-full text-white text-[16px] font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-pink-200 hover:scale-105"
-            style={{ background: "var(--pink)" }}
-          >
-            התחילו עכשיו
-          </a>
-        </div>
-      </div>
+        {/* Outer card */}
+        <div className="relative mx-auto max-w-[1100px] rounded-[28px] px-[72px] py-[64px] overflow-hidden bg-[#FDF9FC]">
 
-      {/* Footer links */}
-      <div className="max-w-[1200px] mx-auto px-5 py-12">
-        <div className="flex flex-col md:flex-row gap-10 justify-between">
-          {/* Logo & tagline */}
-          <div className="flex flex-col gap-3 max-w-[250px]">
-            <div className="flex items-center gap-2">
-              <div className="w-[30px] h-[30px] rounded-lg flex items-center justify-center" style={{ background: "var(--pink)" }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-              <span className="text-[18px] font-bold text-[var(--dark)]">בירוקליק</span>
-            </div>
-            <p className="text-[13px] text-[var(--text-gray)] leading-relaxed">
-              פלטפורמת AI לפישוט תהליכים בירוקרטיים לאזרחים ישראלים
+          {/* Circles */}
+          <div className="pointer-events-none absolute top-1/2 left-1/2 w-[480px] h-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(220,80,120,0.15)]" />
+          <div className="pointer-events-none absolute top-1/2 left-1/2 w-[340px] h-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(220,80,120,0.12)]" />
+          <div className="pointer-events-none absolute top-1/2 left-1/2 w-[210px] h-[210px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(220,80,120,0.1)]" />
+
+          {/* Content */}
+          <div className="relative z-10 flex flex-col items-center text-center gap-6">
+
+            {/* Heading */}
+            <h2 className="text-[42px] font-black text-[#1a1040] leading-[1.35] max-w-[640px]">
+              נשמח לדבר אתכם, השאירו
+              <br />
+              פרטים ונחזור אליכם בהקדם.
+            </h2>
+
+            {/* Subtitle */}
+            <p className="text-[16px] text-[#6b6b8a] leading-[1.8] max-w-[480px]">
+              אנחנו מייצרים עבורכם את כל הטפסים בעזרת מערכת חכמה וחדשנית
+              <br />
+              וחוסכים לכם את כל הכאב ראש והבירוקטריה
             </p>
-            {/* Social icons */}
-            <div className="flex items-center gap-3 mt-2">
-              {["facebook", "instagram", "linkedin"].map((s) => (
-                <a key={s} href="#" className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-pink-50 transition-colors">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-gray)" strokeWidth="1.5">
-                    <rect x="2" y="2" width="20" height="20" rx="5" />
-                  </svg>
-                </a>
-              ))}
-            </div>
-          </div>
 
-          {/* Links columns */}
-          <div className="flex flex-wrap gap-10">
-            <div className="flex flex-col gap-3">
-              <h4 className="text-[14px] font-bold text-[var(--dark)] mb-1">ניווט</h4>
-              {["ראשי", "הכלים שלנו", "הבלוג שלנו"].map((l) => (
-                <a key={l} href="#" className="text-[13px] text-[var(--text-gray)] hover:text-[var(--pink)] transition-colors">{l}</a>
-              ))}
+            {/* Form */}
+            <div className="flex items-center gap-3 w-full max-w-[680px] mt-2">
+
+              {/* Button */}
+              <button
+                type="submit"
+                className="h-[52px] px-9 rounded-xl bg-gradient-to-br from-[#f0197d] to-[#e91e8c] text-white text-[16px] font-bold whitespace-nowrap flex-shrink-0 shadow-[0_4px_18px_rgba(233,30,140,0.3)] transition-opacity hover:opacity-90"
+              >
+                שליחה
+              </button>
+
+              {/* Phone */}
+              <input
+                type="tel"
+                placeholder="טלפון"
+                className="flex-1 h-[52px] rounded-xl border border-gray-200 bg-white px-4 text-[15px] text-gray-700 text-right outline-none focus:border-pink-600"
+              />
+
+              {/* Name */}
+              <input
+                type="text"
+                placeholder="שם"
+                className="flex-1 h-[52px] rounded-xl border border-gray-200 bg-white px-4 text-[15px] text-gray-700 text-right outline-none focus:border-pink-600"
+              />
             </div>
-            <div className="flex flex-col gap-3">
-              <h4 className="text-[14px] font-bold text-[var(--dark)] mb-1">משפטי</h4>
-              {["תנאי שימוש", "מדיניות פרטיות", "נגישות"].map((l) => (
-                <a key={l} href="#" className="text-[13px] text-[var(--text-gray)] hover:text-[var(--pink)] transition-colors">{l}</a>
-              ))}
-            </div>
-            <div className="flex flex-col gap-3">
-              <h4 className="text-[14px] font-bold text-[var(--dark)] mb-1">צור קשר</h4>
-              {["info@biuroclick.co.il", "שאלות נפוצות"].map((l) => (
-                <a key={l} href="#" className="text-[13px] text-[var(--text-gray)] hover:text-[var(--pink)] transition-colors">{l}</a>
-              ))}
-            </div>
+
           </div>
         </div>
+      </section>
+      <footer
+        dir="ltr"
+        className="bg-[#FDF9FC] py-[56px] pb-[40px] font-['Heebo','Assistant',sans-serif]"
+      >
+        <div className="max-w-[1100px] mx-auto px-12 grid grid-cols-[1fr_1fr_1fr_220px] gap-10 items-start">
 
-        {/* Copyright */}
-        <div className="mt-10 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-[12px] text-[var(--text-light)]">
-            © 2025 בירוקליק - כל הזכויות שמורות
-          </p>
-          <div className="flex items-center gap-2">
-            <span className="text-[12px] text-[var(--text-light)]">בנה עם ❤️ בישראל</span>
+          {/* Col 1 */}
+          <div className="text-right">
+            <h4 className="text-[15px] font-bold text-[#1a1040] mb-[18px]">
+              יצירת קשר
+            </h4>
+            <a
+              href="mailto:shushanran@gmail.com"
+              className="block text-[14px] text-gray-500 hover:text-gray-700 transition-colors"
+            >
+              shushanran@gmail.com
+            </a>
           </div>
+
+          {/* Col 2 */}
+          <div className="text-right">
+            <h4 className="text-[15px] font-bold text-[#1a1040] mb-[18px]">
+              פרטיות
+            </h4>
+            <nav className="flex flex-col gap-[14px]">
+              <a href="#" className="text-[14px] text-gray-500 hover:text-gray-700 transition-colors">
+                תקנון שימוש
+              </a>
+              <a href="#" className="text-[14px] text-gray-500 hover:text-gray-700 transition-colors">
+                מדיניות פרטיות
+              </a>
+              <a href="#" className="text-[14px] text-gray-500 hover:text-gray-700 transition-colors">
+                עוגיות
+              </a>
+              <span className="text-[14px] font-bold text-[#1a1040] cursor-default">
+                בירוקליק 2025 כל הזכויות שמורות
+              </span>
+            </nav>
+          </div>
+
+          {/* Col 3 */}
+          <div className="text-right">
+            <h4 className="text-[15px] font-bold text-[#1a1040] mb-[18px]">
+              ניווט
+            </h4>
+            <nav className="flex flex-col gap-[14px]">
+              <a href="#" className="text-[14px] text-gray-500 hover:text-gray-700 transition-colors">
+                ראשי
+              </a>
+              <a href="#" className="text-[14px] text-gray-500 hover:text-gray-700 transition-colors">
+                איך זה עובד?
+              </a>
+              <a href="#" className="text-[14px] text-gray-500 hover:text-gray-700 transition-colors">
+                הכלים שלנו
+              </a>
+              <a href="#" className="text-[14px] text-gray-500 hover:text-gray-700 transition-colors">
+                לקוחות משתפים
+              </a>
+              <a href="#" className="text-[14px] text-gray-500 hover:text-gray-700 transition-colors">
+                שאלות תשובות
+              </a>
+            </nav>
+          </div>
+
+          {/* Col 4 */}
+          <div className="flex flex-col items-end gap-1 text-right">
+            <div className="flex items-center gap-1">
+
+              {/* Icon */}
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="#1a1040"
+                xmlns="http://www.w3.org/2000/svg"
+                className="ml-1 flex-shrink-0"
+              >
+                <path d="M4 2L20 9.5L13 12.5L10 20L4 2Z" />
+              </svg>
+
+              {/* Logo */}
+              <span className="text-[34px] font-extrabold leading-none tracking-[-0.5px]">
+                <span className="text-[#e91e8c]">בירוקליק</span>
+              </span>
+            </div>
+
+            {/* Tagline */}
+            <span className="text-[13px] text-gray-400 mt-[2px]">
+              בירוקרטיה בקליק
+            </span>
+          </div>
+
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 }

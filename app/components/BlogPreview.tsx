@@ -1,72 +1,118 @@
-const posts = [
+"use client";
+
+import React from "react";
+
+const articles = [
   {
+    id: 1,
+    category: "ביטוח",
+    categoryBg: "bg-yellow-200",
+    categoryText: "text-yellow-800",
+    readTime: "8 דקות",
+    title: "מדריך מקיף: זכויות צרכנים בתביעות 2024",
+    description: "כל מה שצריך לדעת על הזכויות שלכם, חוק הגנת הצרכן והגשת תביעות",
+    // CSS gradient background — no image needed
+    cardBg: "from-[#0f0c29] via-[#302b63] to-[#24243e]",
+    dots: "#7c3aed",
+    accent: "#a78bfa",
+  },
+  {
+    id: 2,
     category: "טיפים",
-    title: "5 דרכים להחזיר כסף ממס הכנסה",
-    excerpt: "גלו את הסודות שרואי החשבון לא רוצים שתדעו.",
-    date: "15 מרץ 2025",
-    img: "📊",
-    gradient: "from-purple-900 to-indigo-900",
+    categoryBg: "bg-pink-200",
+    categoryText: "text-pink-700",
+    readTime: "8 דקות",
+    title: "מדריך מקיף: זכויות צרכנים בתביעות 2024",
+    description: "כל מה שצריך לדעת על הזכויות שלכם, חוק הגנת הצרכן והגשת תביעות",
+    cardBg: "from-[#1a0533] via-[#3b0764] to-[#1e1b4b]",
+    dots: "#ec4899",
+    accent: "#f9a8d4",
   },
   {
-    category: "מדריכים",
-    title: "איך מגישים תביעה קטנה בבית משפט?",
-    excerpt: "מדריך מקיף שיעזור לכם לנהל תביעה בעצמכם.",
-    date: "10 מרץ 2025",
-    img: "⚖️",
-    gradient: "from-blue-900 to-cyan-900",
-  },
-  {
-    category: "חדשות",
-    title: "שינויים בחוק הביטוח הלאומי 2025",
-    excerpt: "כל מה שצריך לדעת על עדכוני הגמלאות החדשים.",
-    date: "5 מרץ 2025",
-    img: "📰",
-    gradient: "from-pink-900 to-rose-900",
+    id: 3,
+    category: "טיפים",
+    categoryBg: "bg-purple-200",
+    categoryText: "text-purple-700",
+    readTime: "8 דקות",
+    title: "מדריך מקיף: זכויות צרכנים בתביעות 2024",
+    description: "כל מה שצריך לדעת על הזכויות שלכם, חוק הגנת הצרכן והגשת תביעות",
+    cardBg: "from-[#0d1b2a] via-[#1b2a4a] to-[#0f172a]",
+    dots: "#818cf8",
+    accent: "#c7d2fe",
   },
 ];
 
-export default function BlogPreview() {
+const BlogSection: React.FC = () => {
   return (
-    <section id="blog" className="w-full bg-[#f9fafb] py-20">
-      <div className="max-w-[1200px] mx-auto px-5">
-        {/* Title */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-12 gap-4">
-          <h2 className="text-[36px] md:text-[42px] font-medium text-[var(--dark)]">
-            יו יוו |{" "}
-            <span className="font-bold text-[var(--dark)]">שבטות יגניות אחבם</span>
+    <>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+      />
+
+      <section
+        dir="rtl"
+        className="bg-white py-20 px-6"
+        style={{ fontFamily: "'Heebo', 'Assistant', sans-serif" }}
+      >
+        <div className="max-w-6xl mx-auto">
+
+          {/* ── Heading ── */}
+          <h2 className="text-center text-4xl md:text-5xl font-extrabold text-gray-900 mb-14 leading-tight">
+            קצת תוכן{" "}
+            <span
+              style={{
+                background: "linear-gradient(120deg,#f472b6 0%,#a78bfa 50%,#60a5fa 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              שבטוח יעניין אתכם
+            </span>
           </h2>
-          <a href="#" className="text-[14px] font-semibold text-[var(--pink)] hover:underline whitespace-nowrap flex items-center gap-1">
-            לכל הבלוג
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {posts.map((post, i) => (
-            <a key={i} href="#" className="blog-card block bg-white overflow-hidden rounded-2xl border border-gray-100">
-              {/* Image area */}
-              <div className={`h-[180px] bg-gradient-to-br ${post.gradient} flex items-center justify-center text-6xl`}>
-                {post.img}
-              </div>
+          {/* ── Cards grid ── */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+            {articles.map((article) => (
+              <article key={article.id} className="flex flex-col cursor-pointer group">
 
-              {/* Content */}
-              <div className="p-5 flex flex-col gap-3">
-                <span className="self-start text-[11px] font-bold px-3 py-1 rounded-full bg-[rgba(233,30,140,0.08)] text-[var(--pink)]">
-                  {post.category}
-                </span>
-                <h3 className="text-[17px] font-bold text-[var(--dark)] leading-snug">
-                  {post.title}
+                {/* ── Card visual: CSS-only dark atmosphere ── */}
+                <div
+                  className={`relative rounded-t-2xl overflow-hidden mb-4 h-56 bg-gradient-to-br ${article.cardBg}`}
+                >
+                  <img src="/blog.jpg" alt="" />
+                </div>
+
+                {/* ── Meta row ── */}
+                <div className="flex items-center justify-between mb-3 px-1">
+                  <span
+                    className={`text-sm font-semibold px-4 py-1 rounded-full ${article.categoryBg} ${article.categoryText}`}
+                  >
+                    {article.category}
+                  </span>
+                  <span className="text-sm text-gray-400 font-medium">
+                    זמן קריאה: {article.readTime}
+                  </span>
+                </div>
+
+                {/* ── Title ── */}
+                <h3 className="text-lg font-bold text-gray-900 text-right leading-snug mb-2 px-1 group-hover:text-purple-700 transition-colors duration-200">
+                  {article.title}
                 </h3>
-                <p className="text-[14px] text-[var(--text-gray)] leading-relaxed">{post.excerpt}</p>
-                <span className="text-[12px] text-[var(--text-light)] mt-1">{post.date}</span>
-              </div>
-            </a>
-          ))}
+
+                {/* ── Description ── */}
+                <p className="text-sm text-gray-500 text-right leading-relaxed px-1">
+                  {article.description}
+                </p>
+              </article>
+            ))}
+          </div>
+
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
-}
+};
+
+export default BlogSection;
