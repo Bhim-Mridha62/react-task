@@ -1,4 +1,5 @@
 import { HeroIcon } from "../utils/svg";
+import FloatingIcons from "./FloatingIcons";
 
 export default function Hero() {
   return (
@@ -6,13 +7,13 @@ export default function Hero() {
       {/* Pink blob background top right */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] pink-blob pointer-events-none" />
 
-      <div className="max-w-[1200px] mx-auto px-5 pt-14 pb-10 flex flex-col md:flex-row items-center gap-8">
+      <div className="mx-auto px-5 pt-14 pb-10 flex flex-col md:flex-row items-center gap-8 md:px-20 px-4">
 
         {/* RIGHT - Text content */}
-        <div className="flex-1 flex flex-col gap-6 z-10">
+        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-right gap-6 z-10 mt-8 md:mt-0">
           {/* Badge */}
           <div
-            className="inline-flex self-start items-center gap-2 px-4 py-2 rounded-full text-[13px] font-medium"
+            className="inline-flex self-center md:self-start items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-[12px] md:text-[13px] font-medium"
             style={{ background: "rgba(124,58,237,0.07)", color: "#7c3aed" }}
           >
             <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
@@ -22,23 +23,23 @@ export default function Hero() {
           </div>
 
           {/* Headline */}
-          <h1 className="text-[42px] md:text-[54px] font-extrabold leading-[1.15] text-[var(--dark)]">
+          <h1 className="text-[36px] md:text-[54px] font-extrabold leading-[1.15] text-[var(--dark)]">
             פחות בירוקרטיה,
-            <br />
-            <span className="gradient-text-pink">יותר כסף בכיס שלך.</span>
+            <br className="hidden md:block" />
+            <span className="gradient-text-pink"> יותר כסף בכיס שלך.</span>
           </h1>
 
           {/* Sub text */}
-          <p className="text-[17px] leading-[1.8] text-[var(--text-gray)] max-w-[400px]">
+          <p className="text-[16px] md:text-[17px] leading-[1.6] md:leading-[1.8] text-[var(--text-gray)] max-w-[400px]">
             בירוקליק מאחדת את כל הכלים שיעזרו לך לקבל
-            <br />
+            <br className="hidden md:block" />
             את מה שמגיע לך- פשוט, חכם ובמינימום מאמץ.
           </p>
 
           {/* CTA */}
           <a
             href="#start"
-            className="self-start inline-flex items-center justify-center h-[50px] px-9 rounded-[8px] text-white text-[16px] font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-pink-200 hover:scale-105"
+            className="self-center md:self-start inline-flex items-center justify-center h-[46px] md:h-[50px] px-8 md:px-9 w-full md:w-auto rounded-xl md:rounded-[8px] text-white text-[16px] font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-pink-200 hover:scale-105"
             style={{ background: "var(--pink)" }}
           >
             התחילו עכשיו
@@ -50,6 +51,7 @@ export default function Hero() {
           <div className="absolute top-0 right-0 translate-x-[80%] -translate-y-[40%]">
             <HeroIcon />
           </div>
+          {/* <FloatingIcons /> */}
         </div>
       </div>
     </section >

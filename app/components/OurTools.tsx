@@ -194,7 +194,7 @@ const ToolsSection: React.FC = () => {
         dir="rtl"
         style={{
           background: "#ffffff",
-          padding: "80px 0",
+          padding: "60px 0",
           fontFamily: "'Heebo', 'Assistant', sans-serif",
           overflow: "hidden",
           position: "relative",
@@ -202,31 +202,28 @@ const ToolsSection: React.FC = () => {
         }}
       >
         <div
+          className="flex flex-col md:flex-row items-center gap-10 md:gap-10"
           style={{
             maxWidth: 1200,
             margin: "0 auto",
-            padding: "0 40px",
-            display: "flex",
-            alignItems: "center",
-            gap: 40,
-            flexDirection: "row", // in RTL: first child = right side
+            padding: "0 20px md:px-10",
           }}
         >
           {/* ══════════════════════════════
               RIGHT COLUMN — "הכלים שלנו"
           ══════════════════════════════ */}
           <div
+            className="w-full md:w-[280px] text-center md:text-right"
             style={{
-              flex: "0 0 280px",
-              textAlign: "right",
+              flexShrink: 0,
               direction: "rtl",
             }}
           >
             <h2
               style={{
-                fontSize: 52,
+                fontSize: 42,
                 fontWeight: 800,
-                margin: "0 0 18px",
+                margin: "0 0 16px",
                 background: "linear-gradient(135deg,#a78bfa 0%,#ec4899 55%,#818cf8 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -241,13 +238,13 @@ const ToolsSection: React.FC = () => {
               style={{
                 fontSize: 15,
                 color: "#6b7280",
-                lineHeight: 1.9,
+                lineHeight: 1.8,
                 margin: 0,
                 fontFamily: "inherit",
               }}
             >
               הכלים שלנו מייצרים עבורכם את כל מה שאתם צריכים
-              <br />
+              <br className="hidden md:block" />
               בקלות ומהירות, כלים נוספים יכנסו במשך
             </p>
           </div>
@@ -256,24 +253,19 @@ const ToolsSection: React.FC = () => {
               LEFT COLUMN — Hex grid + blurred card
           ══════════════════════════════ */}
           <div
+            className="flex-1 flex flex-col items-center md:flex-row relative w-full overflow-hidden md:overflow-visible"
             style={{
-              flex: 1,
-              display: "flex",
-              alignItems: "center",
-              position: "relative",
-              // Pull left so blurred card peeks out of viewport edge
-              marginLeft: -60,
+              // Pull left so blurred card peeks out of viewport edge (desktop)
+              marginLeft: typeof window !== 'undefined' && window.innerWidth >= 768 ? -60 : 0,
             }}
           >
-            {/* Blurred left-edge hex (half-visible) */}
-            <div
-              style={{
-                position: "relative",
-                flexShrink: 0,
-                overflow: "hidden", // crop right half
-                width: 134, // half of 268
-              }}
-            >
+            {/* Blurred left-edge hex (half-visible) - hide on mobile */}
+             <div
+               className="hidden md:block relative shrink-0 overflow-hidden"
+               style={{
+                 width: 134, // half of 268
+               }}
+             >
               {/* The coming-soon label card sits below the blurred hex */}
               <div
                 style={{
@@ -325,33 +317,38 @@ const ToolsSection: React.FC = () => {
               <BlurredHex />
             </div>
 
-            {/* Main 2×2 hex grid */}
+            {/* Main hex grid - stack nicely on mobile */}
             <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: 0,
-                marginLeft: 8,
-              }}
+              className="flex flex-col items-center md:items-start md:ml-2 gap-4 md:gap-0 w-full"
             >
-              {/* Row 1 */}
-              <div style={{ display: "flex", gap: 8 }}>
-                <HexCard tool={tools[0]} />
-                <HexCard tool={tools[1]} />
+              {/* Mobile stacked view */}
+              <div className="md:hidden flex flex-col gap-4 w-full items-center">
+                  <HexCard tool={tools[0]} />
+                  <HexCard tool={tools[1]} />
+                  <HexCard tool={tools[2]} />
+                  <HexCard tool={tools[3]} />
               </div>
 
-              {/* Row 2 — offset by half a card */}
-              <div
-                style={{
-                  display: "flex",
-                  gap: 8,
-                  marginTop: -46,
-                  marginLeft: 138, // half card width + gap
-                }}
-              >
-                <HexCard tool={tools[2]} />
-                <HexCard tool={tools[3]} />
+              {/* Desktop view */}
+              <div className="hidden md:flex flex-col items-start w-full">
+                  {/* Row 1 */}
+                  <div style={{ display: "flex", gap: 8 }}>
+                    <HexCard tool={tools[0]} />
+                    <HexCard tool={tools[1]} />
+                  </div>
+    
+                  {/* Row 2 — offset by half a card */}
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: 8,
+                      marginTop: -46,
+                      marginLeft: 138, // half card width + gap
+                    }}
+                  >
+                    <HexCard tool={tools[2]} />
+                    <HexCard tool={tools[3]} />
+                  </div>
               </div>
             </div>
           </div>

@@ -123,13 +123,15 @@ export default function HowItWorks() {
   return (
     <section
       dir="rtl"
-      className="w-full bg-white py-16 px-6 md:px-16 lg:px-24"
+      className="w-full bg-white py-12 md:py-16 px-5 md:px-16 lg:px-24"
     >
-      <div className="max-w-5xl mx-auto flex flex-row-reverse md:flex-row items-center gap-12 md:gap-20">
-        <div className="flex-1 flex flex-col gap-8 text-right">
+      <div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10 md:gap-20">
+        
+        {/* Right column: Text content */}
+        <div className="flex-1 flex flex-col gap-8 text-right w-full">
 
           {/* Headline */}
-          <h2 className="text-4xl md:text-5xl font-light text-gray-800 leading-tight">
+          <h2 className="text-[36px] md:text-5xl font-light text-gray-800 leading-tight">
             איך זה עובד?{" "}
             <span
               className="font-extrabold"
@@ -153,15 +155,15 @@ export default function HowItWorks() {
                 <div className="flex-shrink-0 mt-0.5">{step.icon}</div>
                 <div className="flex-1">
                   <p
-                    className="text-xs font-semibold tracking-wide mb-0.5"
+                    className="text-[14px] font-semibold tracking-wide mb-0.5"
                     style={{ color: "#E91E8C" }}
                   >
                     {step.stepLabel}
                   </p>
-                  <h3 className="text-base font-bold text-gray-900 mb-1">
+                  <h3 className="text-[18px] md:text-base font-bold text-gray-900 mb-1">
                     {step.title}
                   </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">
+                  <p className="text-[15px] md:text-sm text-gray-500 leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -170,9 +172,9 @@ export default function HowItWorks() {
           </div>
 
           {/* CTA */}
-          <div>
+          <div className="flex justify-center md:justify-start mt-4 md:mt-0">
             <button
-              className="px-8 py-3 rounded-[8px] text-white font-semibold text-base shadow-md
+              className="w-full md:w-auto px-8 py-3.5 md:py-3 rounded-[8px] text-white font-semibold text-base shadow-md
                          transition-transform duration-150 hover:scale-105 active:scale-95"
               style={{
                 background:
@@ -183,9 +185,10 @@ export default function HowItWorks() {
             </button>
           </div>
         </div>
+
         {/* ── Left column: circular image ─────────────────────────────────── */}
-        <div className="flex-shrink-0 flex items-center justify-center">
-          <div className="relative w-72 h-72 md:w-[380px] md:h-[380px]">
+        <div className="flex-shrink-0 flex items-center justify-center w-full md:w-auto">
+          <div className="relative w-[300px] h-[300px] md:w-[380px] md:h-[380px]">
             {/* Decorative concentric rings */}
             <div className="absolute inset-0 rounded-full border border-gray-200" />
             <div className="absolute inset-5 rounded-full border border-gray-100" />
@@ -202,6 +205,7 @@ export default function HowItWorks() {
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

@@ -52,13 +52,13 @@ const BlogSection: React.FC = () => {
 
       <section
         dir="rtl"
-        className="bg-white py-20 px-6"
+        className="bg-white py-12 md:py-20 px-5 md:px-6"
         style={{ fontFamily: "'Heebo', 'Assistant', sans-serif" }}
       >
         <div className="max-w-6xl mx-auto">
 
           {/* ── Heading ── */}
-          <h2 className="text-center text-4xl md:text-5xl font-extrabold text-gray-900 mb-14 leading-tight">
+          <h2 className="text-center text-[32px] md:text-5xl font-extrabold text-gray-900 mb-10 md:mb-14 leading-tight">
             קצת תוכן{" "}
             <span
               style={{

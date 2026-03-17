@@ -42,29 +42,29 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="w-full bg-white py-20">
+    <section className="w-full bg-white py-12 md:py-20">
       <div className="max-w-[1200px] mx-auto px-5 flex flex-col items-center text-center">
         {/* Title */}
-        <h2 className="text-[36px] md:text-[46px] font-medium text-[var(--dark)] mb-16">
+        <h2 className="text-[32px] md:text-[46px] font-medium text-[var(--dark)] mb-10 md:mb-16">
           כל הסיבות{" "}
           <span className="gradient-text-green font-bold">לבחור בנו</span>
         </h2>
 
         {/* Grid */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-10 max-w-4xl justify-center">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 max-w-4xl justify-center">
           {features.map((f, i) => (
-            <div key={i} className="flex flex-col items-center group">
-              {/* Pink icon square */}
-              <div
-                className="w-[72px] h-[72px] rounded-2xl flex items-center justify-center mb-5 shadow-md shadow-pink-100 group-hover:shadow-pink-200 transition-shadow duration-300"
-                style={{ background: "var(--pink)" }}
-              >
-                {f.icon}
-              </div>
-              <h3 className="text-[20px] font-bold text-[var(--dark)] mb-2">{f.title}</h3>
-              <p className="text-[15px] text-[var(--text-gray)] leading-relaxed max-w-[240px]">{f.desc}</p>
-            </div>
-          ))}
+             <div key={i} className="flex flex-col items-center group bg-white md:bg-transparent rounded-2xl md:rounded-none p-6 md:p-0 shadow-sm border border-gray-100 md:border-none md:shadow-none hover:shadow-md transition-shadow">
+               {/* Pink icon square */}
+               <div
+                 className="w-[64px] h-[64px] md:w-[72px] md:h-[72px] rounded-2xl flex items-center justify-center mb-4 md:mb-5 shadow-md shadow-pink-100 group-hover:shadow-pink-200 transition-shadow duration-300"
+                 style={{ background: "var(--pink)" }}
+               >
+                 {f.icon}
+               </div>
+               <h3 className="text-[18px] md:text-[20px] font-bold text-[var(--dark)] mb-2">{f.title}</h3>
+               <p className="text-[14px] md:text-[15px] text-[var(--text-gray)] leading-relaxed max-w-[240px]">{f.desc}</p>
+             </div>
+           ))}
         </div>
       </div>
     </section>

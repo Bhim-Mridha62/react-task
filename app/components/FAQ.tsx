@@ -28,26 +28,26 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="w-full bg-white py-20">
+    <section id="faq" className="w-full bg-white py-12 md:py-20">
       <div className="max-w-[800px] mx-auto px-5">
         {/* Title */}
-        <h2 className="text-[36px] md:text-[44px] font-medium text-[var(--dark)] mb-12 text-center">
+        <h2 className="text-[32px] md:text-[44px] font-medium text-[var(--dark)] mb-8 md:mb-12 text-center">
           שאלות <span className="text-[var(--pink)] font-bold">שאלי יו לכם</span>
         </h2>
 
         {/* FAQ Items */}
         <div className="flex flex-col divide-y divide-gray-100">
           {faqs.map((faq, i) => (
-            <div key={i} className="faq-item py-5">
+            <div key={i} className="faq-item py-4 md:py-5">
               <button
                 className="w-full flex items-center justify-between gap-4 text-right"
                 onClick={() => setOpen(open === i ? null : i)}
               >
-                <span className="text-[16px] font-semibold text-[var(--dark)] flex-1">
+                <span className="text-[15px] md:text-[16px] font-semibold text-[var(--dark)] flex-1">
                   {faq.q}
                 </span>
                 <div
-                  className="w-[32px] h-[32px] rounded-full flex items-center justify-center shrink-0 transition-all duration-300"
+                  className="w-[28px] h-[28px] md:w-[32px] md:h-[32px] rounded-full flex items-center justify-center shrink-0 transition-all duration-300"
                   style={{
                     background: open === i ? "var(--pink)" : "rgba(233,30,140,0.08)",
                     color: open === i ? "white" : "var(--pink)",
@@ -70,7 +70,7 @@ export default function FAQ() {
               </button>
 
               {open === i && (
-                <div className="mt-4 text-[15px] text-[var(--text-gray)] leading-relaxed pr-1 animate-fade-in-up">
+                <div className="mt-3 md:mt-4 text-[14px] md:text-[15px] text-[var(--text-gray)] leading-relaxed pr-1 animate-fade-in-up">
                   {faq.a}
                 </div>
               )}
