@@ -4,6 +4,10 @@ import PartnersBar from "./components/PartnersBar";
 import HowItWorks from "./components/HowItWorks";
 import WhyChooseUs from "./components/WhyChooseUs";
 import OurTools from "./components/OurTools";
+import Stats from "./components/Stats";
+import FAQ from "./components/FAQ";
+import BlogPreview from "./components/BlogPreview";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -15,7 +19,11 @@ export default function Home() {
         <HowItWorks />
         <WhyChooseUs />
         <OurTools />
+        <Stats />
+        <FAQ />
+        <BlogPreview />
       </main>
+      <Footer />
     </div>
   );
 }

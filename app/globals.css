@@ -56,12 +56,30 @@ body {
   50% { transform: translate(-10px, -12px) rotate(5deg); }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 .animate-float1 { animation: float1 6s ease-in-out infinite; }
 .animate-float2 { animation: float2 7s ease-in-out infinite; }
 .animate-float3 { animation: float3 5s ease-in-out infinite; }
 .animate-float4 { animation: float4 8s ease-in-out infinite; }
+.animate-fade-in-up { animation: fadeInUp 0.7s ease forwards; }
+.animate-marquee { animation: marquee 20s linear infinite; }
 
-/* Gradient text for "לבחור בנו" */
+/* Gradient text */
 .gradient-text-green {
   background: linear-gradient(90deg, #10b981, #06b6d4);
   -webkit-background-clip: text;
@@ -76,7 +94,7 @@ body {
   background-clip: text;
 }
 
-/* Tool card hexagonal/angled bottom */
+/* Tool card */
 .tool-card {
   background: white;
   border-radius: 16px;
@@ -107,4 +125,33 @@ body {
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* FAQ accordion */
+.faq-item {
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+/* Stats counter */
+.stat-card {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Blog card hover */
+.blog-card {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
+/* Pink blob decorative background */
+.pink-blob {
+  background: radial-gradient(ellipse at center, rgba(233,30,140,0.08) 0%, transparent 70%);
 }
