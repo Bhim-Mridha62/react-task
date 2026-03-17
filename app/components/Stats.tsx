@@ -35,12 +35,15 @@ const testimonials = [
   },
 ];
 
-const StatCard: React.FC<{ value: string; label: string }> = ({ value, label }) => (
-  <div className="bg-gradient-to-br from-[#f0197d] to-[#e91e8c] rounded-2xl px-6 md:px-9 py-6 md:py-8 w-full md:w-[30%] flex-shrink-0 flex flex-col gap-2 shadow-[0_8px_32px_rgba(233,30,140,0.25)] text-center md:text-right mb-6 md:mb-0">
-    <span className="text-[36px] md:text-[48px] font-extrabold text-white leading-tight">
+const StatCard: React.FC<{ value: string; label: string }> = ({
+  value,
+  label,
+}) => (
+  <div className="bg-gradient-to-br from-[#f0197d] to-[#e91e8c] rounded-2xl px-6 py-6 md:px-9 md:py-8 w-full md:w-[30%] flex flex-col gap-2.5 shadow-[0_8px_32px_rgba(233,30,140,0.25)] text-center md:text-right">
+    <span className="text-3xl md:text-[48px] font-extrabold text-white leading-tight">
       {value}
     </span>
-    <span className="text-[14px] md:text-[15px] text-white/90 font-medium">
+    <span className="text-sm md:text-[15px] text-white/90 font-medium">
       {label}
     </span>
   </div>
@@ -50,9 +53,7 @@ const Avatar: React.FC<{ src: string; name: string }> = ({ src, name }) => (
   <img
     src={src}
     alt={name}
-    width={48}
-    height={48}
-    className="w-12 h-12 rounded-full object-cover shrink-0 border-2 border-gray-100"
+    className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border-2 border-gray-100"
   />
 );
 
@@ -66,37 +67,39 @@ const TestimonialsSection: React.FC = () => {
 
       <section
         dir="rtl"
-        className="bg-white py-12 md:py-20 pb-16 md:pb-[100px] overflow-hidden font-['Heebo','Assistant',sans-serif]"
+        className="bg-white py-12 md:py-20 overflow-hidden font-['Heebo','Assistant',sans-serif]"
       >
-        <div className="max-w-[1200px] mx-auto px-5 md:px-12 flex flex-col gap-12 md:gap-[72px]">
+        <div className="mx-auto px-4 md:px-12 flex flex-col gap-12 md:gap-[72px]">
           {testimonials.map((t) => (
             <div
               key={t.id}
-              className={`flex flex-col md:flex-row items-center gap-6 md:gap-12 md:${t.statSide === "right" ? "flex-row" : "flex-row-reverse"
-                }`}
+              className={`
+                flex flex-col md:flex-row items-center gap-6 md:gap-12
+                ${t.statSide === "right" ? "md:flex-row" : "md:flex-row-reverse"}
+              `}
             >
               {/* Stat */}
               <StatCard value={t.stat.value} label={t.stat.label} />
 
               {/* Content */}
-              <div className="flex-1 flex flex-col gap-4 text-center md:text-right w-full md:w-[70%] items-center md:items-start">
-                {/* Quote */}
-                <p className="text-[16px] md:text-[18px] text-gray-800 leading-[1.6] md:leading-[1.85] w-full max-w-[620px]">
-                  {t.quote}
-                </p>
-
+              <div className="flex-1 flex flex-col gap-4 text-center md:text-right w-full md:w-[70%]">
                 {/* Author */}
-                <div className="flex items-center gap-3 mt-2">
-                  <Avatar src={t.avatar} name={t.name} />
-                  <div className="flex flex-col gap-[2px] text-right">
-                    <span className="text-[15px] font-bold text-gray-900">
+                <div className="flex items-center justify-center md:justify-start gap-3">
+                  <div className="flex flex-col gap-[2px]">
+                    <span className="text-sm md:text-[15px] font-bold text-gray-900">
                       {t.name}
                     </span>
-                    <span className="text-[13px] text-gray-400">
+                    <span className="text-xs md:text-[13px] text-gray-400">
                       {t.role}
                     </span>
                   </div>
+                  <Avatar src={t.avatar} name={t.name} />
                 </div>
+
+                {/* Quote */}
+                <p className="text-base md:text-[18px] text-gray-800 leading-relaxed md:leading-[1.85] max-w-full md:max-w-[620px]">
+                  {t.quote}
+                </p>
               </div>
             </div>
           ))}

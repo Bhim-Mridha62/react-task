@@ -10,7 +10,7 @@ export default function Footer() {
         className="w-full py-16 px-4 bg-white font-['Heebo','Assistant',sans-serif]"
       >
         {/* Outer card */}
-        <div className="relative mx-auto max-w-[1100px] rounded-[28px] px-[72px] py-[64px] overflow-hidden bg-[#FDF9FC]">
+        <div className="relative mx-auto max-w-[1100px] rounded-[28px] px-4 md:px-[72px] py-[64px] overflow-hidden bg-[#FDF9FC]">
 
           {/* Circles */}
           <div className="pointer-events-none absolute top-1/2 left-1/2 w-[480px] h-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(220,80,120,0.15)]" />
