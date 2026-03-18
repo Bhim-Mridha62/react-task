@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const [toolsOpen, setToolsOpen] = useState(false);
   return (
     <header className="">
       <div className="mx-auto h-[70px] flex items-center justify-between md:px-20 px-4">
@@ -45,12 +45,35 @@ export default function Header() {
         {/* Nav - Center Desktop */}
         <nav className="hidden md:flex items-center gap-8">
           <a href="#" className="text-[15px] font-medium text-[var(--text-gray)] hover:text-[var(--pink)] transition-colors">ראשי</a>
-          <a href="#tools" className="text-[15px] font-medium text-[var(--text-gray)] hover:text-[var(--pink)] transition-colors flex items-center gap-1">
-            הכלים שלנו
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </a>
+          <div className="relative">
+            <button
+              onClick={() => setToolsOpen(!toolsOpen)}
+              className="text-[15px] font-medium text-[var(--text-gray)] hover:text-[var(--pink)] transition-colors flex items-center gap-1"
+            >
+              הכלים שלנו
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            {/* Dropdown */}
+            {toolsOpen && (
+              <div className="absolute right-0 mt-3 w-[220px] bg-white border border-gray-100 rounded-xl shadow-lg py-2 z-50">
+                <a href="#" className="block px-4 py-2 text-[14px] hover:bg-gray-50">
+                  הגשת תביעה קטנה
+                </a>
+                <a href="#" className="block px-4 py-2 text-[14px] hover:bg-gray-50">
+                  החזר מס לשכירים
+                </a>
+                <a href="#" className="block px-4 py-2 text-[14px] hover:bg-gray-50">
+                  החזר מחברות ביטוח
+                </a>
+                <a href="#" className="block px-4 py-2 text-[14px] hover:bg-gray-50">
+                  הכנת מכתב לבנקים
+                </a>
+              </div>
+            )}
+          </div>
           <a href="#blog" className="text-[15px] font-medium text-[var(--text-gray)] hover:text-[var(--pink)] transition-colors">הבלוג שלנו</a>
           <a href="#terms" className="text-[15px] font-medium text-[var(--text-gray)] hover:text-[var(--pink)] transition-colors">תקנון שימוש</a>
         </nav>

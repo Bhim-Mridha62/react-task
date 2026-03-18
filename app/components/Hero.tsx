@@ -3,7 +3,7 @@ import FloatingIcons from "./FloatingIcons";
 
 export default function Hero() {
   return (
-    <section className="w-full bg-white overflow-hidden relative">
+    <section className="w-full bg-white overflow-hidden relative md:pb-20 pb-10 ">
       {/* Pink blob background top right */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] pink-blob pointer-events-none" />
 
@@ -47,11 +47,12 @@ export default function Hero() {
         </div>
 
         {/* LEFT - Illustration */}
-        <div className="relative">
-          <div className="absolute top-0 right-0 translate-x-[80%] -translate-y-[40%]">
+        <div className="flex-1 relative">
+          <div className="absolute top-[-300px] right-[-100px] w-[700px] h-[700px]">
             <HeroIcon />
+            <FloatingIcons />
           </div>
-          {/* <FloatingIcons /> */}
+
         </div>
       </div>
     </section >
