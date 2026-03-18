@@ -3,15 +3,14 @@ import FloatingIcons from "./FloatingIcons";
 
 export default function Hero() {
   return (
-    <section className="w-full bg-white overflow-hidden relative md:pb-20 pb-10 ">
+    <section className="w-full bg-white overflow-hidden relative md:pb-28 pb-10 ">
       {/* Pink blob background top right */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] pink-blob pointer-events-none" />
 
       <div className="mx-auto px-5 pt-14 pb-10 flex flex-col md:flex-row items-center gap-8 md:px-20 px-4">
 
         {/* RIGHT - Text content */}
-        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-right gap-6 z-10 mt-8 md:mt-0">
-          {/* Badge */}
+        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-right gap-6 z-10 mt-8 md:mt-0 order-2 md:order-1">          {/* Badge */}
           <div
             className="inline-flex self-center md:self-start items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-[12px] md:text-[13px] font-medium"
             style={{ background: "rgba(124,58,237,0.07)", color: "#7c3aed" }}
@@ -47,8 +46,21 @@ export default function Hero() {
         </div>
 
         {/* LEFT - Illustration */}
-        <div className="flex-1 relative">
-          <div className="absolute top-[-300px] right-[-100px] w-[700px] h-[700px]">
+        {/* Illustration */}
+        <div className="flex-1 relative flex justify-center md:justify-end order-1 md:order-2">
+
+          <div
+            className="
+      relative 
+      w-[320px] h-[320px] 
+      sm:w-[400px] sm:h-[400px]
+      md:w-[700px] md:h-[700px]
+
+      md:absolute 
+      md:top-[-250px] 
+      md:right-[-100px]
+    "
+          >
             <HeroIcon />
             <FloatingIcons />
           </div>
