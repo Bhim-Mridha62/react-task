@@ -5,8 +5,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: "/gamyan-product-list",
-  assetPrefix: "/gamyan-product-list/",
+  basePath: "/react-task",
+  assetPrefix: "/react-task/",
 };
 
 export default nextConfig;
